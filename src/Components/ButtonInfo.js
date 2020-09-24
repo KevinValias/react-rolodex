@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 
 const ButtonInfo = (props) => {
     return (  
-        <button onClick={props.method}>
-            {props.text}
-            
+        <button className={props.className} onClick={props.method}>
+            {props.text}  
         </button>
     );
 }
