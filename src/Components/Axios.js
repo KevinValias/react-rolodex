@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ButtonInfo from './ButtonInfo';
 import axios from 'axios';
-import Map from './Map';
+import Item from './Item';
 
 
 class  Axios extends Component {
@@ -25,29 +25,20 @@ class  Axios extends Component {
        })
        
    }
-            
-
-    // MapUsers = (OurUsers) => {
-    //     return OurUsers.map((item,index) => {
-    //        console.log(item.name.first)
-    //     })
-    // }
-   Switch = () => {
-       this.setState({isHidden: this.state.isHidden === true ? false : true})
-       console.log(this.state.isHidden)
-   }
+   
 
     
     render() {  
         if (this.state.isHidden) {
-return (  
+            return (  
             <ul>
+                {this.state.data.map((item,index) => {
+                    return <Item item={item} key={index}/>
+                })}
                 <ButtonInfo method={this.GetUsers} text={'Get-Users'}/>
-               <Map data={this.state.data} method={this.Switch}/>
             </ul>
-        );
-        }
-        
+            );
+        } 
     }
 }
                 
